@@ -13,6 +13,7 @@ import { ProductsPage } from '../products/products';
 import { NavController, Content } from 'ionic-angular';
 import { CartPage } from '../cart/cart';
 import { SearchPage } from '../search/search';
+import { SplashPage } from '../splash/splash';
 
 @Component({
   selector: 'page-home',
@@ -57,7 +58,8 @@ export class HomePage {
     public shared: SharedDataProvider,
     public navCtrl: NavController,
     translate: TranslateService) {
-  } 
+
+  }
   openProducts(value) {
     this.navCtrl.push(ProductsPage, { sortOrder: value });
   }
@@ -71,5 +73,6 @@ export class HomePage {
   openSearch() {
       this.navCtrl.push(SearchPage);
   }
+
 //this is another test commit anouther commit
 }

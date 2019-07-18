@@ -45,6 +45,7 @@ import { AppVersion } from '@ionic-native/app-version';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Http } from '@angular/http';
+import { SplashPage } from '../pages/splash/splash';
 
 @Component({
   animations: [
@@ -146,19 +147,30 @@ export class MyApp {
           let value = val;
           if (this.config.showIntroPage == 0) value = 'firstTime';
 
-          if (value == 'firstTime') {
-            if (this.config.homePage == 1) { this.rootPage = HomePage; }
-            if (this.config.homePage == 2) { this.rootPage = Home2Page; }
-            if (this.config.homePage == 3) { this.rootPage = Home3Page; }
-            if (this.config.homePage == 4) { this.rootPage = Home4Page; }
-            if (this.config.homePage == 5) { this.rootPage = Home5Page; }
-            setTimeout(() => {
-              this.splashScreen.hide();
-            }, 700);
-          }
-          else {
-            this.nav.push(IntroPage);
-          }
+          setTimeout(() => {
+
+            //removed for custome splash
+
+           // this.splashScreen.hide();
+
+           let splash = this.modalCtrl.create(SplashPage);
+           splash.present().then(a=>{
+            if (value == 'firstTime') {
+              if (this.config.homePage == 1) { this.rootPage = HomePage; }
+              if (this.config.homePage == 2) { this.rootPage = Home2Page; }
+              if (this.config.homePage == 3) { this.rootPage = Home3Page; }
+              if (this.config.homePage == 4) { this.rootPage = Home4Page; }
+              if (this.config.homePage == 5) { this.rootPage = Home5Page; }
+
+            }
+            else {
+              this.nav.push(IntroPage);
+            }
+           });
+
+          }, 900);
+
+
           this.storage.set('firsttimeApp', 'firstTime');
         });
         if (this.plt.is('ios')) {
@@ -353,4 +365,5 @@ export class MyApp {
       });
     }
   }
+
 }

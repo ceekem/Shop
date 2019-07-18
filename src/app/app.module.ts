@@ -109,6 +109,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthProvider } from '../providers/auth/auth';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { Timer } from '../components/countdown-timer/timer';
+import { SplashPage } from '../pages/splash/splash';
 
 
 @NgModule({
@@ -136,7 +137,7 @@ import { Timer } from '../components/countdown-timer/timer';
     SubCategories5Page,
     SubCategories6Page,
     ProductsPage,
-
+    SplashPage,
     LanguagePage,
     ContactUsPage,
     AboutUsPage,
@@ -216,6 +217,7 @@ import { Timer } from '../components/countdown-timer/timer';
     SubCategories5Page,
     SubCategories6Page,
     IntroPage,
+    SplashPage,
     PrivacyPolicyPage,
     RefundPolicyPage,
     TermServicesPage,

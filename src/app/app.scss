@@ -73,7 +73,7 @@
         .item {
             background-color:transparent;
         }
-    } 
+    }
 }
 
 .page-empty{
@@ -115,12 +115,12 @@
             bottom: 0;
             right: 0;
             position: absolute;
-            z-index: -1;   
+            z-index: -1;
           }
         .item{
             background-color:color($colors, primary);
             height: 80px;
-			
+
             ion-avatar{
                 .icon{
                     color:color($colors, light);
@@ -148,7 +148,7 @@
         .item{
             border-bottom: 1px solid #dedede;
             background-color: $white;
-			
+
 			ion-icon[item-left]{
 				/*background-color:color($colors, light);*/
 				font-size:20px;
@@ -159,7 +159,7 @@
 				width:35px;
 				padding:5px;
 				border-radius:200px;
-				
+
 				img{
 					width:100%;
 				}
@@ -213,5 +213,17 @@ html[dir="rtl"]{
 }
 
 .side-menu .list-menu .item {
-    border-bottom: 1px solid #dedede !important; 
+    border-bottom: 1px solid #dedede !important;
+}
+
+//-------splash modal-------
+
+page-app {
+
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
 }

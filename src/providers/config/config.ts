@@ -23,7 +23,7 @@ export class ConfigProvider {
 
 
   public yourSiteUrl: string = this.onlineCors + 'http://frankbertelot.utromtech.io';
-  // public yourSiteUrl: string = 'http://frankbertelot.utromtech.io';
+  //public yourSiteUrl: string = 'http://frankbertelot.utromtech.io';
   public consumerKey: string = "ea8f14c715629574703e772686";
   public consumerSecret: string = "d18af05a15629574701cecabd9";
 
