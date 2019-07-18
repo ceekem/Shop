@@ -107,8 +107,8 @@ export class ProductsPage {
     this.getFilters(this.selectedTab);
   }
 
-  //============================================================================================  
-  // filling filter array for keyword search 
+  //============================================================================================
+  // filling filter array for keyword search
   fillFilterArray = function (fValue, fName, keyword) {
     if (fValue._value == true) {
       this.selectedFilters.push({ 'name': fName, 'value': keyword });
@@ -121,7 +121,7 @@ export class ProductsPage {
       });
     } //console.log(this.selectedFilters);
   };
-  //============================================================================================  
+  //============================================================================================
   //getting countries from server
   getFilters = function (id) {
     var dat: { [k: string]: any } = {};
@@ -234,7 +234,10 @@ export class ProductsPage {
         this.shared.subCategories.forEach((value, index) => {
           if (this.selectedTab == value.id) { ind = index; }
         });
-        this.slides.slideTo(ind, 1000, true);
+
+        //console.log('length is:', this.slides);
+
+       this.slides.slideTo(ind, 1000, true);
       }, 100);
     } catch (error) {
 

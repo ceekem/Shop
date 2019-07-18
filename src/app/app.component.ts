@@ -151,7 +151,7 @@ export class MyApp {
 
             //removed for custome splash
 
-           // this.splashScreen.hide();
+           //this.splashScreen.hide();
 
            let splash = this.modalCtrl.create(SplashPage);
            splash.present().then(a=>{
@@ -164,11 +164,11 @@ export class MyApp {
 
             }
             else {
-              this.nav.push(IntroPage);
+             this.nav.push(IntroPage);
             }
            });
 
-          }, 900);
+          }, 0);
 
 
           this.storage.set('firsttimeApp', 'firstTime');

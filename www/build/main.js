@@ -2137,8 +2137,8 @@ var ProductsPage = /** @class */ (function () {
         this.side = "right";
         this.productView = 'grid';
         this.httpRunning = true;
-        //============================================================================================  
-        // filling filter array for keyword search 
+        //============================================================================================
+        // filling filter array for keyword search
         this.fillFilterArray = function (fValue, fName, keyword) {
             var _this = this;
             if (fValue._value == true) {
@@ -2152,7 +2152,7 @@ var ProductsPage = /** @class */ (function () {
                 });
             } //console.log(this.selectedFilters);
         };
-        //============================================================================================  
+        //============================================================================================
         //getting countries from server
         this.getFilters = function (id) {
             var _this = this;
@@ -2339,6 +2339,7 @@ var ProductsPage = /** @class */ (function () {
                         ind = index;
                     }
                 });
+                //console.log('length is:', this.slides);
                 _this.slides.slideTo(ind, 1000, true);
             }, 100);
         }
@@ -2347,30 +2348,24 @@ var ProductsPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]) === "function" && _a || Object)
     ], ProductsPage.prototype, "content", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["y" /* Slides */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["y" /* Slides */])
+        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["y" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["y" /* Slides */]) === "function" && _b || Object)
     ], ProductsPage.prototype, "slides", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* InfiniteScroll */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* InfiniteScroll */])
+        __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* InfiniteScroll */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* InfiniteScroll */]) === "function" && _c || Object)
     ], ProductsPage.prototype, "infinite", void 0);
     ProductsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-products',template:/*ion-inline-start:"C:\Users\Raymond Mortu\Documents\test\frankBertelot2\src\pages\products\products.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      {{\'Shop\'| translate }}\n\n    </ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button icon-only class="cart-button" (click)="openCart()">\n\n        <ion-icon name="cart">\n\n          <ion-badge color="secondary">{{shared.cartquantity}}</ion-badge>\n\n        </ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n  <ion-toolbar class="toolbar-secondary">\n\n    <ion-slides slidesPerView="auto" dir="{{shared.dir}}">\n\n      <ion-slide [class.selected]="selectedTab==\'\'" *ngIf="shared.subCategories!=null" (click)="changeTab(\'\')">{{\'All\'|translate}}</ion-slide>\n\n\n\n      <ion-slide [class.selected]="selectedTab==c.id" *ngFor="let c of shared.subCategories" (click)="changeTab(c)">\n\n        {{c.name}}\n\n      </ion-slide>\n\n    </ion-slides>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content class="page-products" (ionScroll)="onScroll($event)">\n\n\n\n  <ion-grid *ngIf="productView==\'grid\'">\n\n    <ion-col *ngFor="let p of products" col-6>\n\n      <product [data]="p" [type]="\'normal\'"></product>\n\n    </ion-col>\n\n\n\n    <ion-col *ngIf="products.length==0 && !httpRunning" col-12 class="animated fadeIn">\n\n      <h6 text-center>{{\'No Products Found!\'|translate}}</h6>\n\n    </ion-col>\n\n  </ion-grid>\n\n\n\n  <ion-list class="list-view" *ngIf="productView==\'list\'">\n\n    <span *ngFor="let p of products">\n\n      <product [data]="p" [type]="\'list\'"></product>\n\n    </span>\n\n  </ion-list>\n\n\n\n\n\n  <ion-infinite-scroll #infinite (ionInfinite)="getProducts($event)">\n\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n  </ion-infinite-scroll>\n\n\n\n  <ion-fab bottom right *ngIf="scrollTopButton">\n\n    <button ion-fab (click)="scrollToTop()">\n\n      <ion-icon name="arrow-round-up"></ion-icon>\n\n    </button>\n\n  </ion-fab>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-toolbar color="light">\n\n    <ion-buttons left>\n\n      <small>{{"Sort by"|translate}}</small>\n\n      <button small ion-button clear color="secondary" (click)="openSortBy()">\n\n        {{sortOrder| translate}}\n\n        <ion-icon name="arrow-up"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n\n\n    <ion-buttons right>\n\n      <button ion-button icon-only (click)="changeLayout()">\n\n        <ion-icon name="list" [name]="productView==\'grid\'? \'list\' : \'apps\'"></ion-icon>\n\n      </button>\n\n      <button ion-button icon-only (click)="removeFilters()" *ngIf="applyFilter==true">\n\n        <ion-icon name="refresh"></ion-icon>\n\n      </button>\n\n      <button ion-button icon-only *ngIf="shared.dir==\'ltr\'" menuToggle="right">\n\n        <ion-icon name="funnel"></ion-icon>\n\n      </button>\n\n      <button ion-button icon-only *ngIf="shared.dir==\'rtl\'" menuToggle="left">\n\n        <ion-icon name="funnel"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-footer>\n\n\n\n<ion-menu [content]="content" side="{{side}}" id="menu2">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-buttons left>\n\n        <button ion-button icon-only *ngIf="shared.dir==\'ltr\'" menuToggle="right">\n\n          <ion-icon name="close"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only *ngIf="shared.dir==\'rtl\'" menuToggle="left">\n\n          <ion-icon name="close"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n      <ion-title>{{"Filters"|translate}}</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n  <ion-content class="side-menu">\n\n    <h3 style="margin-bottom:0;">{{\'Price Range\'| translate}}</h3>\n\n    <ion-item dir="ltr">\n\n      <ion-range dualKnobs="true" pin="true" snaps="true" [(ngModel)]="price" [min]="0" [max]="maxAmount">\n\n        <ion-label range-left>{{price.lower}}</ion-label>\n\n        <ion-label range-right>{{price.upper}}</ion-label>\n\n      </ion-range>\n\n    </ion-item>\n\n\n\n    <div *ngIf="filters.length>0">\n\n      <ion-list *ngFor="let filter of filters">\n\n        <h3>{{filter.option.name}}</h3>\n\n        <ion-item *ngFor="let options of filter.values">\n\n          <ion-label>{{options.value}}</ion-label>\n\n          <ion-checkbox (ionChange)="fillFilterArray($event,filter.option.name,options.value)"></ion-checkbox>\n\n        </ion-item>\n\n      </ion-list>\n\n    </div>\n\n  </ion-content>\n\n  <ion-footer>\n\n    <ion-toolbar color="light">\n\n      <ion-buttons left>\n\n        <button ion-button outline color="secondary" menuClose="right" (click)="resetFilters()">\n\n          {{\'Reset\'| translate}}\n\n        </button>\n\n      </ion-buttons>\n\n      <ion-title></ion-title>\n\n      <ion-buttons right>\n\n        <button ion-button solid color="secondary" menuClose="right" (click)="applyFilters()">\n\n          {{\'Apply\'| translate}}\n\n        </button>\n\n      </ion-buttons>\n\n    </ion-toolbar>\n\n  </ion-footer>\n\n</ion-menu>\n\n<ion-nav #content></ion-nav>'/*ion-inline-end:"C:\Users\Raymond Mortu\Documents\test\frankBertelot2\src\pages\products\products.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_config_config__["a" /* ConfigProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_shared_data_shared_data__["a" /* SharedDataProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_loading_loading__["a" /* LoadingProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["c" /* TranslateService */],
-            __WEBPACK_IMPORTED_MODULE_7__angular_common_http__["b" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
+        __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__providers_config_config__["a" /* ConfigProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_config_config__["a" /* ConfigProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__providers_shared_data_shared_data__["a" /* SharedDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_shared_data_shared_data__["a" /* SharedDataProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4__providers_loading_loading__["a" /* LoadingProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_loading_loading__["a" /* LoadingProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["c" /* TranslateService */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_7__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__angular_common_http__["b" /* HttpClient */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _l || Object])
     ], ProductsPage);
     return ProductsPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 }());
 
 //# sourceMappingURL=products.js.map
@@ -5177,10 +5172,9 @@ var SplashPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-splash',template:/*ion-inline-start:"C:\Users\Raymond Mortu\Documents\test\frankBertelot2\src\pages\splash\splash.html"*/'<!--\n  Generated template for the SplashPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>splash</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n\n<ion-content padding>\n\n  <div #logo>\n    <div class="animated rotateIn">\n      <img src="assets/splash/icon.png" alt="logo">\n    </div>\n    <div class="animated slideInUp" text-center>\n      <img src="assets/splash/name.png" alt="name">\n      <!-- <h1 class="txt">Frank Bertelot</h1> -->\n    </div>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Raymond Mortu\Documents\test\frankBertelot2\src\pages\splash\splash.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["B" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["B" /* ViewController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["B" /* ViewController */]])
     ], SplashPage);
     return SplashPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=splash.js.map
@@ -6286,7 +6280,7 @@ var MyApp = /** @class */ (function () {
                         value = 'firstTime';
                     setTimeout(function () {
                         //removed for custome splash
-                        // this.splashScreen.hide();
+                        //this.splashScreen.hide();
                         var splash = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_41__pages_splash_splash__["a" /* SplashPage */]);
                         splash.present().then(function (a) {
                             if (value == 'firstTime') {
@@ -6310,7 +6304,7 @@ var MyApp = /** @class */ (function () {
                                 _this.nav.push(__WEBPACK_IMPORTED_MODULE_8__pages_intro_intro__["a" /* IntroPage */]);
                             }
                         });
-                    }, 900);
+                    }, 0);
                     _this.storage.set('firsttimeApp', 'firstTime');
                 });
                 if (_this.plt.is('ios')) {
@@ -7493,8 +7487,8 @@ var ConfigProvider = /** @class */ (function () {
         this.localNotifications = localNotifications;
         this.http = http;
         this.onlineCors = 'https://cors-anywhere.herokuapp.com/';
-        this.yourSiteUrl = this.onlineCors + 'http://frankbertelot.utromtech.io';
-        //public yourSiteUrl: string = 'http://frankbertelot.utromtech.io';
+        //public yourSiteUrl: string = this.onlineCors + 'http://frankbertelot.utromtech.io';
+        this.yourSiteUrl = 'http://frankbertelot.utromtech.io';
         this.consumerKey = "ea8f14c715629574703e772686";
         this.consumerSecret = "d18af05a15629574701cecabd9";
         this.showIntroPage = 1; //  0 to hide and 1 to show intro page
