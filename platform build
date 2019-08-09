@@ -1,1 +1,6 @@
 ionic cordova platform add android@8.0.0
+
+
+product page not scrolling
+fix
+npm install ionic-angular@nightly

@@ -6,7 +6,7 @@
     </button>
 
     <ion-title text-center>
-      <img src="assets/logo_header.png" alt="logo">
+      <img  class="logo" src="assets/splash/icon.png" alt="logo">
     </ion-title>
 
     <ion-buttons end>
@@ -29,7 +29,7 @@
   <!-- Flash sale items products -->
   <div class="module" *ngIf="shared.flashSaleProducts.length!=0" [@animate]>
     <h3>{{'Flash Sale'|translate}}</h3>
-    <ion-slides slidesPerView=2.2 spaceBetween=10 dir="{{shared.dir}}" autoResize='true'>
+    <ion-slides #mySlider (ionSlidesDidLoad)="ionSlidesDidLoad(mySlider)" pager slidesPerView=2.2 spaceBetween=10 dir="{{shared.dir}}" autoResize='true'>
       <ion-slide *ngFor="let p of shared.flashSaleProducts" [@animate]>
         <product [data]="p" [type]="'flash'"></product>
       </ion-slide>

@@ -80,7 +80,7 @@ export class OrderPage {
     // shared.orderDetails.payment_method = 'cash_on_delivery';
   }
 
-  //============================================================================================  
+  //============================================================================================
   //placing order
   addOrder = function (nonce) {
     this.loading.autoHide(5000);
@@ -101,6 +101,9 @@ export class OrderPage {
     this.orderDetail.nonce = nonce;
     this.orderDetail.language_id = this.config.langId;
     var dat = this.orderDetail;
+
+    debugger;
+
     this.httpClient.post(this.config.url + 'addtoorder', dat).subscribe((data: any) => {
       //this.loading.hide();
       if (data.success == 1) {
@@ -162,7 +165,7 @@ export class OrderPage {
       });
   }
 
-  //============================================================================================  
+  //============================================================================================
   //CAlculate Discount total
   calculateDiscount = function () {
     var subTotal = 0;
@@ -175,7 +178,7 @@ export class OrderPage {
     this.discount = (subTotal - total);
   };
 
-  //============================================================================================  
+  //============================================================================================
   //CAlculate all total
   calculateTotal = function () {
     let a = 0;
@@ -194,7 +197,7 @@ export class OrderPage {
     this.calculateDiscount();
   };
 
-  //============================================================================================  
+  //============================================================================================
   //delete Coupon
   deleteCoupon = function (code) {
 
@@ -221,7 +224,7 @@ export class OrderPage {
   };
   //========================================================================================
 
-  //============================================================================================   
+  //============================================================================================
   //getting getMostLikedProducts from the server
   getCoupon = function (code) {
     if (code == '' || code == null) {
@@ -247,7 +250,7 @@ export class OrderPage {
 
   };
 
-  //============================================================================================  
+  //============================================================================================
   //applying coupon on the cart
   applyCouponCart = function (coupon) {
     //checking the coupon is valid or not
@@ -393,7 +396,7 @@ export class OrderPage {
     });
     actionSheet.present();
   }
-  //============================================================================================  
+  //============================================================================================
   //getting token from server
   getToken = function () {
     this.loading.autoHide(2000);
@@ -525,7 +528,7 @@ export class OrderPage {
 
     });
     promise.then(
-      (data) => { //console.log(nonce); 
+      (data) => { //console.log(nonce);
         this.addOrder(nonce);
       },
       (err) => { console.log(err); }

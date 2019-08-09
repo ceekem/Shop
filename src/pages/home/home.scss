@@ -1,4 +1,13 @@
 page-home{
+
+  .logo{
+    width: 65px !important;
+  }
+
+  .slide-zoom{
+    max-height: 156px !important;
+  }
+
     .page-home{
         .module{
             h3{
@@ -17,7 +26,7 @@ page-home{
                         margin-top: 10px;
                         margin-bottom: 10px;
                         text-align: initial;
-                        product{
+                        .product{
                             display: block;
                         }
                     }
@@ -25,9 +34,9 @@ page-home{
                 .swiper-slide-last{
                     padding-top: 15%;
                     .slide-zoom{
-                        
+
                         .card{
-                            
+
                             display: flex;
                             justify-content: center;
                             align-items: center;

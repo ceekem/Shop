@@ -74,5 +74,11 @@ export class HomePage {
       this.navCtrl.push(SearchPage);
   }
 
+
+slideDidLoad(slides){
+  slides.startAutoPlay();
+}
+
+
 //this is another test commit anouther commit
 }
